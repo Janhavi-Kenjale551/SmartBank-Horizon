@@ -71,30 +71,25 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
 
     open();
   };
+return (
+  <Button
+    type="button"
+    onClick={handleClick}
+    disabled={!token || !ready}
+    className="flex w-full items-center justify-start gap-3 rounded-lg bg-transparent px-3 py-3 text-black hover:bg-gray-100 shadow-none"
+  >
+    <Image
+      src="/icons/connect-bank.svg"
+      alt="connect bank"
+      width={24}
+      height={24}
+    />
 
-  return (
-    <>
-      <Button
-        onClick={handleClick}
-        disabled={!token || !ready}
-        className={
-          variant === "ghost"
-            ? "plaidlink-ghost"
-            : variant === "primary"
-            ? "plaidlink-primary"
-            : "plaidlink-default"
-        }
-      >
-        <Image
-          src="/icons/connect-bank.svg"
-          alt="connect bank"
-          width={24}
-          height={24}
-        />
-        <p className="text-[16px] font-semibold">Connect bank</p>
-      </Button>
-    </>
-  );
+    <span className="text-[16px] font-semibold text-black">
+      Connect Bank
+    </span>
+  </Button>
+);
 };
 
 export default PlaidLink;
